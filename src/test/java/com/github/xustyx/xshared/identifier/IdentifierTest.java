@@ -13,7 +13,7 @@ import org.junit.platform.commons.util.StringUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class IdentifierTest {
+class IdentifierTest {
 
     private final Logger logger = LoggerFactory.getLogger(IdentifierTest.class);
 
@@ -25,7 +25,7 @@ public class IdentifierTest {
     }
 
     @Test
-    public void create_valid_identifier() {
+    void create_valid_identifier() {
         final String uuid = "04003b9c-3fb0-4ff2-b50a-15b73586018c";
         final Identifier identifier = Identifier.create(uuid);
 
@@ -35,14 +35,14 @@ public class IdentifierTest {
     }
 
     @Test
-    public void generate_valid_identifier() {
+    void generate_valid_identifier() {
         final Identifier identifier = identifierGenerator.generate();
 
         assertTrue(StringUtils.isNotBlank(identifier.value()));
     }
 
     @Test
-    public void create_invalid_identifier_throws_identifier_invalid_value_exception() {
+    void create_invalid_identifier_throws_identifier_invalid_value_exception() {
         final String uuid = "asdasdasd";
         final String expectedMessage = "[FORMAT](1000): Invalid identifier uuid format";
 

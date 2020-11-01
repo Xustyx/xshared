@@ -6,11 +6,9 @@ import com.github.xustyx.xshared.bus.domain.event.EventBus;
 import com.github.xustyx.xshared.bus.domain.event.EventHandler;
 import com.github.xustyx.xshared.logger.domain.Logger;
 import com.github.xustyx.xshared.logger.infrastructure.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class EventBusInMemory implements EventBus {
 
     private final Logger logger = LoggerFactory.getLogger(EventBusInMemory.class);

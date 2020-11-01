@@ -6,7 +6,7 @@ public abstract class MetricsController<R> {
 
     private MetricsService metricsService;
 
-    public MetricsController(MetricsService metricsService) {
+    protected MetricsController(MetricsService metricsService) {
         this.metricsService = metricsService;
     }
 

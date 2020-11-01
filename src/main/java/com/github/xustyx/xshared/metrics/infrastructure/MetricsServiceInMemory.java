@@ -8,7 +8,6 @@ import com.github.xustyx.xshared.metrics.domain.MetricType;
 import com.github.xustyx.xshared.metrics.domain.Metrics;
 import org.springframework.stereotype.Service;
 
-@Service
 public class MetricsServiceInMemory implements MetricsService {
     private Metrics metrics;
 

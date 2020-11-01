@@ -8,11 +8,9 @@ import com.github.xustyx.xshared.bus.domain.query.Response;
 import com.github.xustyx.xshared.exception.ApplicationExceptions;
 import com.github.xustyx.xshared.logger.domain.Logger;
 import com.github.xustyx.xshared.logger.infrastructure.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service
 public class QueryBusInMemory implements QueryBus {
 
     private final Logger logger = LoggerFactory.getLogger(QueryBusInMemory.class);

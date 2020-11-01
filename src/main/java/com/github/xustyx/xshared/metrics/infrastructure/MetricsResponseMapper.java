@@ -11,6 +11,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MetricsResponseMapper {
+
+    private MetricsResponseMapper(){
+        throw new IllegalStateException("Utility class");
+    }
+
     static MetricsResponse from(Metrics metrics) {
         return new MetricsResponse() {
             @Override

@@ -8,14 +8,12 @@ import com.github.xustyx.xshared.bus.domain.event.EventHandler;
 import com.github.xustyx.xshared.bus.domain.query.Query;
 import com.github.xustyx.xshared.bus.domain.query.QueryHandler;
 import com.github.xustyx.xshared.bus.domain.query.Response;
-import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Service
 public class BusHandlerRegisterInMemory implements BusHandlerRegister {
 
     private Map<String, QueryHandler<? extends Query, ? extends Response>> queryHandlerMap = new HashMap<>();
