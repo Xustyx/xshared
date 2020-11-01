@@ -7,10 +7,10 @@ public class AggregateRoot {
     private List<Event> events = new ArrayList<>();
 
     final public List<Event> pullEvents() {
-        List<Event> events = new ArrayList<>(this.events);
+        List<Event> pEvents = new ArrayList<>(this.events);
         this.events.clear();
 
-        return events;
+        return pEvents;
     }
 
     final protected void record(Event event){
