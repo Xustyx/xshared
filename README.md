@@ -16,7 +16,7 @@ This example uses the embedded **MVN** on this repo using **Windows**. Be sure t
 
 * Clone this repository.
 ```sh
-git clone https://github.dxc.com/gala-lota4/828-fc-shared.git
+git clone https://github.com/Xustyx/xshared.git
 ```
 
 * Compiling the library.
