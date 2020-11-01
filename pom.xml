@@ -13,8 +13,13 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>xshared</name>
     <description>Base library for webapp bus applications</description>
+	
+	
 
     <properties>
+  	<sonar.projectKey>Xustyx_xshared</sonar.projectKey>
+  	<sonar.organization>xustyx</sonar.organization>
+  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <java.version>11</java.version>
     </properties>
     
