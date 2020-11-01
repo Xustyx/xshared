@@ -6,14 +6,14 @@ import java.util.List;
 public class AggregateRoot {
     private List<Event> events = new ArrayList<>();
 
-    final public List<Event> pullEvents() {
+    public final List<Event> pullEvents() {
         List<Event> pEvents = new ArrayList<>(this.events);
         this.events.clear();
 
         return pEvents;
     }
 
-    final protected void record(Event event){
+    protected final void record(Event event){
         this.events.add(event);
     }
 }
