@@ -15,11 +15,11 @@ public abstract class CommandController {
         this.identifierGenerator = identifierGenerator;
     }
 
-    protected void dispatch(Command command) {
+    protected final void dispatch(Command command) {
         this.commandBus.dispatch(command);
     }
 
-    protected Identifier identifier() {
-        return this.identifierGenerator.generate();
+    protected final String identifier() {
+        return this.identifierGenerator.generate().value();
     }
 }
