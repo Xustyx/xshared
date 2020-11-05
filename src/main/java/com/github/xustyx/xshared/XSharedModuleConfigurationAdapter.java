@@ -19,66 +19,91 @@ import org.springframework.context.annotation.Bean;
 
 public abstract class XSharedModuleConfigurationAdapter {
 
-    private MetricsService metricsService;
-    private BusHandlerRegister busHandlerRegister;
-    private CommandBus commandBus;
-    private QueryBus queryBus;
-    private EventBus eventBus;
+    private final MetricsService metricsService;
+    private final BusHandlerRegister busHandlerRegister;
+    private final IdentifierGenerator identifierGenerator;
 
-    private IdentifierGenerator identifierGenerator;
+    private final CommandBus commandBus;
+    private final QueryBus queryBus;
+    private final EventBus eventBus;
+
 
     public XSharedModuleConfigurationAdapter() {
         this.metricsService = new MetricsServiceInMemory();
         this.busHandlerRegister = new BusHandlerRegisterInMemory();
+        this.identifierGenerator = new IdentifierJavaGenerator();
+
         this.commandBus = new CommandBusInMemory(busHandlerRegister);
         this.queryBus = new QueryBusInMemory(busHandlerRegister);
         this.eventBus = new EventBusInMemory(busHandlerRegister);
-        this.identifierGenerator = new IdentifierJavaGenerator();
     }
 
     @Bean
-    public IdentifierGenerator identifierGenerator(){
+    public final IdentifierGenerator identifierGenerator() {
+        return withIdentifierGenerator();
+    }
+
+    protected IdentifierGenerator withIdentifierGenerator(){
         return this.identifierGenerator;
     }
 
     @Bean
-    public BusHandlerRegister busHandlerRegister() {
+    public final BusHandlerRegister busHandlerRegister() {
+        return withBusHandlerRegister();
+    }
+
+    protected BusHandlerRegister withBusHandlerRegister(){
         return this.busHandlerRegister;
     }
 
     @Bean
-    public MetricsService metricsService() {
+    public final MetricsService metricsService() {
+        return withMetricsService();
+    }
+
+    protected MetricsService withMetricsService(){
         return this.metricsService;
     }
 
     @Bean
-    public CommandBus commandBus() {
+    public final CommandBus commandBus() {
         if (withMetricsModule()) {
-            return new CommandBusMetric(this.commandBus, this.metricsService);
+            return new CommandBusMetric(withCommandBus(), withMetricsService());
         }
 
+        return withCommandBus();
+    }
+
+    protected CommandBus withCommandBus() {
         return this.commandBus;
     }
 
     @Bean
-    public QueryBus queryBus() {
+    public final QueryBus queryBus() {
         if (withMetricsModule()) {
-            return new QueryBusMetric(this.queryBus, this.metricsService);
+            return new QueryBusMetric(withQueryBus(), withMetricsService());
         }
 
+        return withQueryBus();
+    }
+
+    protected QueryBus withQueryBus(){
         return this.queryBus;
     }
 
     @Bean
-    public EventBus eventBus() {
+    public final EventBus eventBus() {
         if (withMetricsModule()) {
-            return new EventBusMetric(this.eventBus, this.metricsService);
+            return new EventBusMetric(withEventBus(), withMetricsService());
         }
 
+        return withEventBus();
+    }
+
+    protected EventBus withEventBus(){
         return this.eventBus;
     }
 
-
-    public abstract boolean withMetricsModule();
+    protected abstract boolean withMetricsModule();
 
 }

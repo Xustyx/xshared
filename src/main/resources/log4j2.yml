@@ -2,11 +2,13 @@ Configuration:
     Appenders:
         Console:
             PatternLayout:
-                pattern: '%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable'
+                disableAnsi: false
+                pattern: '%style{%d{ISO8601}}{white} %highlight{%-5p} [%style{%t}{bright,blue}] %style{%c{1.}}{bright,yellow}: %m%n'
             name: Console
             target: SYSTEM_OUT
     Loggers:
         Root:
+            includeLocation: true
             AppenderRef:
                 - ref: Console
-            level: all
+            level: info

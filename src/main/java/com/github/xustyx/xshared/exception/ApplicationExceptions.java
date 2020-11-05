@@ -6,6 +6,6 @@ public class ApplicationExceptions {
         throw new IllegalStateException("Utility class");
     }
 
-    public static final ApplicationException INVALID_IDENTIFIER = ApplicationException.create("1000", ApplicationExceptionCategory.FORMAT, "Invalid identifier uuid format");
-    public static final ApplicationException HANDLER_NOT_FOUND = ApplicationException.create("1001", ApplicationExceptionCategory.APPLICATION, "Handler was not found to dispatch the command or query");
+    public static final ApplicationException INVALID_IDENTIFIER = ApplicationException.create("INVALID_IDENTIFIER", ApplicationExceptionCategory.FORMAT, "Invalid identifier uuid format");
+    public static final ApplicationException HANDLER_NOT_FOUND = ApplicationException.create("HANDLER_NOT_FOUND", ApplicationExceptionCategory.APPLICATION, "Handler was not found to dispatch the command or query");
 }

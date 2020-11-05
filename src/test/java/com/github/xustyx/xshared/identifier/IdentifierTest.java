@@ -44,7 +44,7 @@ class IdentifierTest {
     @Test
     void create_invalid_identifier_throws_identifier_invalid_value_exception() {
         final String uuid = "asdasdasd";
-        final String expectedMessage = "[FORMAT](1000): Invalid identifier uuid format";
+        final String expectedMessage = "[FORMAT](INVALID_IDENTIFIER): Invalid identifier uuid format";
 
         Exception exception = assertThrows(ApplicationException.class, () -> Identifier.create(uuid));
         final String actualMessage = exception.getMessage();
